@@ -1,0 +1,268 @@
+/*___ */
+.con_brd { outline: 1px solid red; } /* container border */
+.r_brd { outline: 1px solid green; } /* row border */
+.c_brd { outline: 1px dashed black; } /* column border */
+/*___/ */
+
+
+/* *****************************
+            BASIC
+***************************** */
+/* _________________________flash message */
+p.flash_msg {
+    position: absolute;
+    top: 12%;
+    display: block;
+    margin-left: 40%;
+}
+p.flash_msg > span.text-success {
+    outline: 1px solid green;
+    padding: 5px 10px;
+}
+/* ________________________/flash message */
+
+#w1 > li.custom_bg_li_navmenu > a:before{
+    margin-right: 10px;
+}
+#w1 button.logout:before {
+    margin-right: 10px;
+}
+
+/* ______Triangle for NavBar to attack the standard Bootstrap menu (Properties of Bootstrap-2.3.2) */
+.navbar .nav > li > .dropdown-menu:before { /**/
+    position: absolute;
+    top: -11px; /*-7px*/
+    left: 9px;  /*9px*/
+    display: inline-block;
+    border-right: 11px solid transparent;  /*7px......*/
+    border-bottom: 11px solid #ccc;       /*7px......*/
+    border-left: 11px solid transparent; /*7px......*/
+    border-bottom-color: rgba(0, 0, 0, 0.2);
+    content: '';
+}
+.navbar .nav > li > .dropdown-menu:after {  /* */
+    position: absolute;
+    top: -10px;  /*-6px*/
+    left: 10px;  /* 10px*/
+    display: inline-block;
+    border-right: 10px solid transparent;  /*6px......*/
+    border-bottom: 10px solid #F8F8F8; /*6px..../ Сделать тут цветом, который стоит и у самого списка выпадающего меню*/
+    border-left: 10px solid transparent;  /*6px......*/
+    content: '';
+}
+/*____/Triangle for NavBar to attack the standard Bootstrap menu (Properties of Bootstrap-2.3.2) */
+
+#w2,#w4 {
+    /* right: 0; */
+    left: 0;
+}
+
+li[class="custom_bg_li_navmenu active"] > a {
+    background-color: gold !important;
+    border-radius: 7px;
+    color: black !important;
+}
+
+#w1 > li.custom_bg_li_navmenu > a {
+    padding-bottom: 14px;
+}
+
+
+/* ТЕСТ на выведения иконок`Glyphicon` к закладкам НавМеню */
+li[class="custom_bg_li_navmenu glyphicon glyphicon-folder-open"]:before,
+li[class="custom_bg_li_navmenu glyphicon glyphicon-folder-open active"]:before {
+    color: #9d9d9d;
+    position: absolute;
+    top: 18px;
+    left: -6px;
+    z-index: 10;
+}
+/*__/ТЕСТ на выведения иконок`Glyphicon` к закладкам НавМеню */
+
+
+div.navbar-header > a.navbar-brand {
+    color: yellow;
+}
+section#user_personal_cabinet {
+    margin-top: -15px;
+}
+section#user_personal_cabinet p.user_personal_data_container > img {
+    outline: 1px solid gainsboro;
+    max-width: 90px;
+    height: auto;
+}
+
+footer.footer {
+    background: black;
+    height: auto;
+}
+footer p.copyrighted {
+    margin-left: 11px;
+    margin-top: 9px;
+    color: yellow;
+}
+/* ______/BASIC */
+
+
+/* ***********************************
+   REGISTRATION page & LOGIN IN page
+*********************************** */
+/* _________________________asterisk marker for the required fields Form */
+form#login-form-user label:after { /* for the Form 'Login in' */
+    content: " *";
+    color: red;
+}
+form#registr-form-user .form-group label:after {  /* for the Form 'SignUp'*/
+    content: " *";
+    color: red;
+}
+form#registr-form-user .form-group {
+    margin-bottom: 1px !important;
+}
+#login-form-user > div.form-group.required {
+    margin-bottom: 1px !important;
+}
+/* ________________________/asterisk marker for the required fields Form */
+/* ______/REGISTRATION page & LOGIN IN page */
+
+
+/* ***********************************
+            PROFILE page
+*********************************** */
+/* _________________________asterisk marker for the required fields Form */
+form#edit-profile-form-user .form-group label:after {
+    content: " *";
+    color: red;
+}
+form#edit-profile-form-user > div.form-group.field-user-src_avatar > label:after {
+    content: "";
+}
+form#edit-profile-form-user .form-group {
+    margin-bottom: 1px !important;
+}
+form#edit-profile-form-user input {
+    background: rgba(255, 255, 0, 0.53);
+}
+form#edit-profile-form-user input+.help-block {
+    color: #a94442;
+}
+form#edit-profile-form-user input.empty_field {
+    border: 1px solid #BF0F0B;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+}
+form#edit-profile-form-user input#user-src_avatar {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+}
+form#edit-profile-form-user input#user-src_avatar:hover {
+    background: rgb(255, 255, 0);
+}
+a#btn_delete_profile_user {
+    width: 100%;
+}
+div.form-group.delete_block {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+/* ________________________/asterisk marker for the required fields Form */
+/* ______/PROFILE page */
+
+
+/* *****************************
+            HOME page
+***************************** */
+/*__________________________Tabs with information content in Home pge */
+.nav-tabs {
+    border-bottom: 1px solid #B7B6B6;
+}
+.nav-tabs > li > a:hover {
+    background-color: #fff;
+}
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    color: #555;
+    cursor: default;
+    background-color: #fff;
+    border: 1px solid #B7B6B6;
+    border-bottom-color: transparent;
+}
+div.my_tab_content {
+    background-color: #fff;
+    padding: 10px 12px 5px 12px;
+    border-left: 1px solid #B7B6B6;
+    border-right: 1px solid #B7B6B6;
+    border-bottom: 1px solid #B7B6B6;
+}
+span.span_for_title {
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+p.description_txt {
+    color: #0f0f0f;
+    text-indent: 1.5em;
+    text-align: justify;
+}
+
+div.avatar_container > img {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: inherit;
+    width: 100%;
+}
+/*_________________________/Tabs with information content in Home pge */
+
+/*_______________Accordion effect with information content in Home pge */
+div#accordion { /* пока размер экрана > 689px этот блок с "Accordion effect" скрыт и показывается "Tabs with information content in Home pge" */
+    display: none;
+}
+/*______________/Accordion effect with information content in Home pge */
+/* ______/HOME page */
+
+
+
+/***********************************************************************
+                               MEDIA QUERIES:
+***********************************************************************/
+
+/*
+  CHANGE DOM with CONTENT in "Home page"
+*/
+@media (max-width: 689px) {  /* скрываем этот блок,который отрабатывал до размера > 689px */
+    div.tabbable {
+        display: none;
+    }
+    div#accordion { /* поеказываем этот блок,вместо div.tabbable */
+        display: block;
+    }
+    #collapse2 > div[class="panel-body"] > img {
+        width: 100%;
+    }
+}  /*___/@media (max-width: 500px) */
+
+@media (max-width: 991px) {  /* скрываем этот блок,который отрабатывал до размера > 500px */
+    #tab1 div.avatar_container {
+        width: 127px;
+        height: auto;
+    }
+}  /*___/@media (max-width: 991px) */
+
+@media (max-width: 767px) {  /* скрываем этот блок,который отрабатывал до размера > 500px */
+    #tab1 div.avatar_container {
+        width: 100%;
+        height: auto;
+        margin-bottom: 23px;
+    }
+}  /*___/@media (max-width: 767px) */
+
+@media (max-width: 689px) {  /* скрываем этот блок,который отрабатывал до размера > 500px */
+    div.panel-body div.avatar_container {
+        margin-bottom: 23px;
+    }
+}  /*___/@media (max-width: 689px) */
+
