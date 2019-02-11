@@ -5,9 +5,6 @@ use yii\base\Model;
 //use app\models\User;
 use yii\web\UploadedFile;  //for upload files
 
-/* Class Profile - модель-прослойка. Для вывода данных в форму редактирования(Edit) данных зарегистрированного и залогиненного Юзера.
-*/
-
 /**
     MODEL FOR VALIDATION & FILTERING DATA DURING REGISTRATION USER
 */
@@ -27,7 +24,6 @@ class Profile extends Model
     public $upload_file_path ='uploads/'; //path to directory uploaded file (avatar User)
 
     public function attributeLabels(){
-        //подставятся эти лейблы для полей Формы "Signup",если только они не прописаны непосредственно в самой Форме во вьюхе (->label('Username')),тогда отработают те,а эти проигнорируются
         return [
             'name' => Yii::t('app', 'Name field'),
             'surname' => Yii::t('app', 'Surname field'),
@@ -46,16 +42,15 @@ class Profile extends Model
     */
     public function rules(){
         return [
-            [ ['name','surname','username','email','birth','mobile','password'],'required' ], //username,email,password must be required!
+            [ ['name','surname','username','email','birth','mobile','password'],'required' ],
             ['email','email'],  //email must be valid email format
-            ['email','unique','targetClass'=>'app\models\User'],  //email must be unique and don't repeat in DB
-            ['username','unique','targetClass'=>'app\models\User'],  //username must be unique and don't repeat in DB
-            //для 'targetClass' надо передать ту модель,кот.использ.табл.БД,к кот.мы применяем это правило валидации- в данном случае это model User,кот.взпимод.с табл.'user'
-            [ ['username','email', 'password'], 'trim'],  //username,email,password are both trim
-            [ 'username', 'string', 'length'=>[2, 35] ], //or ['username','string','min'=>2,'max'=>35]
-            [ 'email', 'string', 'length'=>[10, 50] ], //or ['email','string','min'=>10,'max'=>50]
+            ['email','unique','targetClass'=>'app\models\User'], 
+            ['username','unique','targetClass'=>'app\models\User'], 
+            [ ['username','email', 'password'], 'trim'],
+            [ 'username', 'string', 'length'=>[2, 35] ],
+            [ 'email', 'string', 'length'=>[10, 50] ],
             [['file'], 'file'],
-            [ 'password', 'string', 'length'=>[5, 255] ] //or ['password','string','min'=>5,'max'=>35] ,
+            [ 'password', 'string', 'length'=>[5, 255] ]
         ];
     }
 
@@ -125,4 +120,4 @@ class Profile extends Model
         return move_uploaded_file($tmp_name_file, $destination);
     }
 
-}  //__/class Profile
+}

@@ -3,10 +3,6 @@ namespace app\models;
 use Yii;
 use yii\base\Model;
 
-/* Class Signup - модель-прослойка. Для регистрации(Registration) Юзера.
-   Тут мы не наследуем ActiveRecord и не работаем с БД,- т.е. не имеем связи с табл.'user' и ее полями как свойствами этого Класса.
-   Тут нам нужно получить данные из формы регистрации(Registration) и обработать их и сохранить - т.е.эта модель для фильтрации и валидации данных и сохранения их в табл.'user' БД*/
-
 /**
     MODEL FOR VALIDATION & FILTERING DATA DURING REGISTRATION USER
 */
@@ -28,7 +24,6 @@ class Signup extends Model
      * @return array a Labels for inputs form "Signup"
     */
     public function attributeLabels(){
-    //подставятся эти лейблы для полей Формы "Signup",если только они не прописаны непосредственно в самой Форме во вьюхе (->label('Username')),тогда отработают те,а эти проигнорируются
         return [
             'name' => Yii::t('app', 'Name field'),
             'surname' => Yii::t('app', 'Surname field'),
@@ -50,7 +45,6 @@ class Signup extends Model
             ['email','email'],  //email must be valid email format
             ['email','unique','targetClass'=>'app\models\User'],  //email must be unique and don't repeat in DB
             ['username','unique','targetClass'=>'app\models\User'],  //username must be unique and don't repeat in DB
-            //для 'targetClass' надо передать ту модель,кот.использ.табл.БД,к кот.мы применяем это правило валидации- в данном случае это model User,кот.взпимод.с табл.'user'
             [ ['username','email', 'password'], 'trim'],  //username,email,password are both trim
             [ 'username', 'string', 'length'=>[2, 35] ], //or ['username','string','min'=>2,'max'=>35]
             [ 'email', 'string', 'length'=>[10, 50] ], //or ['email','string','min'=>10,'max'=>50]
@@ -79,4 +73,4 @@ class Signup extends Model
     }
 
 
-}  //__/class Signup
+}

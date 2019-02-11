@@ -3,10 +3,6 @@ namespace app\models;
 use Yii;
 use yii\base\Model;
 
-/* Class Login - модель-прослойка. Для логинации(Login in) Юзера.
-Тут мы не наследуем ActiveRecord и не работаем с БД,- т.е. не имеем связи с табл.'user' и ее полями как свойствами этого Класса.
-Тут нам нужно получить данные из формы логинации(Login in) и обработать их - т.е.эта модель для фильтрации и валидации данных */
-
 /**
     MODEL FOR VALIDATION & FILTERING DATA DURING LOGIN IN USER
 */
@@ -23,7 +19,6 @@ class Login extends Model
     public function rules(){
         return [
             [ ['email','password'],'required' ], //email,password must be required!
-            //['email','email'],  //email must be valid email format - чтобы можно было реализовать логинацию как по email,так и по username.Иначе в поле email не введешь ничего кроме строки с '@'
             [ ['email', 'password'], 'trim'],  //post_title and post_text are both trim
             ['password','validatePassword'], //password is validated by function validatePassword()
         ];
@@ -33,7 +28,6 @@ class Login extends Model
      * @return array a Labels for inputs form "Login in"
     */
     public function attributeLabels(){
-    //подставятся эти лейблы для полей Формы "Login in",если только они не прописаны непосредственно в самой Форме во вьюхе (->label('Username')),тогда отработают те,а эти проигнорируются
         return [
             'email' => Yii::t('app', 'Email/Username field'),
             'password' => Yii::t('app', 'Password field'),
@@ -48,7 +42,7 @@ class Login extends Model
     */
     public function validatePassword($attribute, $params){  //var_dump($user);die;
         if( !$this->hasErrors() ):  //if not errors in validation
-            //$user = User::findOne(['email'=>$this->email]);  //find user by email - этот функционал вынес в отд.функцию ниже getUser()
+            //$user = User::findOne(['email'=>$this->email]);
             $user = $this->getUser(); //find user by email or username
 
             //if this user not find or passwords don't match,- add custom error 'Incorrect or non-existent username or password'
@@ -78,4 +72,4 @@ class Login extends Model
 
     }
 
-}  //__/class Login
+}

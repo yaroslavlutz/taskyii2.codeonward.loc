@@ -20,12 +20,11 @@ class AppAsset extends AssetBundle
     public $css = [
         'css/site.css',
         'css/mystyle.css', //add mystyle.css
-        'css/font-awesome.css',  //add font-awesome icons /web/css/font-awesome.css + his working files locate in: /web/fonts
+        'css/font-awesome.css',
     ];
     public $js = [
-        'js/myjs.js',  //add myjs.js
-        'js/jquery.maskedinput.min.js',  //add myjs.js
-        //'js/jquery-2.2.3.js', add jQuery's library //закомментировано, т.к. когда подключил `datepicker` на страницу стали загружаться 2 библиотеки jQuery - ошибка в Консоли
+        'js/myjs.js',
+        'js/jquery.maskedinput.min.js', 
     ];
     public $depends = [
         'yii\web\YiiAsset',
